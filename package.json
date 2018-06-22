@@ -1,11 +1,11 @@
 {
-  "name": "d-minute-front",
+  "name": "d-minute-ui",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "server.js",
+  "repository": "https://github.com/woliverhl/d-minute-front.git",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng app.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
