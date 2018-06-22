@@ -9,7 +9,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "node build",
     "proxy": "node serve --proxy-config proxy.conf.json"
   },
   "private": true,
