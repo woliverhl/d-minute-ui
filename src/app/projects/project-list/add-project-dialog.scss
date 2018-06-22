@@ -1,0 +1,40 @@
+:host{
+    display: block;
+    padding: 1em;
+}
+
+form{
+    width: 100%;
+}
+
+button{
+    margin: 0 auto;
+    color: white;
+    background-color: #21B3D8;
+}
+
+mat-divider{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.memberPanel{
+    display: flex;
+}
+
+.closeModalButton{
+    position: absolute;
+    margin-left: 97%;
+    bottom: 82%;
+    color: #B8B8B8;
+    background-color: #FFFFFF;
+}
+
+
+button.deleteMember.mat-button{
+    width: 16%!important;
+    height: 50%!important;
+    min-width: 0px!important;
+    background-color: red!important;
+}
+

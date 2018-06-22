@@ -1,0 +1,28 @@
+mat-toolbar{
+    background-color:#21B3D8;
+    color:#FFFFFF;
+    position: relative;
+    .toolbarContainer{
+        img{
+            display: inline-block;
+        }
+        &-session-options p,&-session-options a, &-session-options img{
+            display: inline-block;
+        }
+        &-session-options-username{
+            font-family: Helvetica Neue;
+            font-size: 13px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 1em 1em;
+            p{
+                font-weight: 700;
+            }
+            a{
+                font-weight: 400;
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+.details-container{
+    display: block;
+    margin: 1em auto;
+    border-radius: 5px;
+    width: 80%;
+    h2{
+        text-align: center;
+        font-size: 1.5em;
+    }
+    .addMeetingButton{
+        background-color:#1EAAF1;
+        color: #FFFFFF;
+        display: block;
+        margin: 1em auto;
+    }
+    &-mettings{
+        width: 100%;
+        .meeting-list{
+            border: 1px solid rgba(0,0,0,.12);
+            border-radius: 5px;
+            .meeting-items{
+                padding: 10px;
+                white-space: initial;
+                border-bottom: 1px solid rgba(0,0,0,.12);
+            }
+            .meeting-item{
+                cursor: pointer;
+            }
+        }
+        .meeting-menu{
+            float: left;
+            margin: 1em 1em 1em;
+            max-width: 20%;
+            font-size: 10px;
+        }
+        .meeting-detail{
+            font-family: Roboto, sanserif;
+            float: left;
+            width: 69%;
+            padding: 1em;
+            border-left: 1px solid rgba(0,0,0,.12);
+            &-body{
+                .formActa{
+                    border-top: 1px solid rgba(0,0,0,.12);
+                    h1{
+                        padding: 1em 0;
+                        text-align: center;
+                        font-size: 1.5em;
+                        text-decoration: underline;
+                    }
+                }
+            }
+            &-options{
+                position: relative;
+                float: right;
+                left: 20%;
+                a{
+                    cursor: pointer;
+                }
+            }
+            &-titulo{
+                text-align: center;
+            }
+        }
+    }
+}
+
+.isSecretary{
+    margin-right: 2em;
+    margin-top: 1em;
+}
+
+.selectedElement{
+    background-color: #1EAAF1;
+    color: #FFFFFF;
+}

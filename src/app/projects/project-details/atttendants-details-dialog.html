@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Lista de Asistentes</h2>
+        </div>
+        <div class="col-md-12">
+            <mat-nav-list dense>
+                <a mat-list-item *ngFor="let attendant of listOfAttendants"> {{attendant.nombre}} </a>
+            </mat-nav-list>
+        </div>
+        <div class="col-md-12">
+            <button mat-raised-button type="button" (click)="editAttendants()">Editar Asistentes</button>
+        </div>
+    </div>
+    <div class="col-md-12 formContainer">
+        <app-users-list #userList *ngIf="edit" (onSubmit)="submitList($event)">
+        </app-users-list>
+    </div>
+</div>

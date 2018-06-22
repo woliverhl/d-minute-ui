@@ -1,0 +1,26 @@
+$border-bottom: 1px solid gray ;
+
+mat-card{
+    margin-top: 2em;
+}
+
+mat-card-title{
+    font-size: 17px!important;
+}
+
+mat-card-header{
+    border-bottom: $border-bottom;
+}
+
+mat-nav-list :any-link{
+    border-bottom: $border-bottom;
+}
+
+button{
+    margin-bottom: 1em;
+    height: auto;
+    padding: 0 1em;
+    width: auto;
+    color: white;
+    background-color: #21B3D8;
+}

@@ -1,0 +1,28 @@
+<div class="container" style="margin: 0;">
+  <div class="row background">
+    <div class="col-md-12">
+      <img src="../../../assets/img/logos/meetingviewer-logo-lg.png" class="meeting-logo" alt="">
+    </div>
+      <form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="login-form">
+          <div class="row login-form__login-inputs">
+            <div class="col-md-12">
+                <mat-icon svgIcon="email"></mat-icon>
+                <mat-form-field>
+                  <input matInput placeholder="Correo Electronico" type="email" [(ngModel)]="User.userName" formControlName="userName">
+                </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-icon svgIcon="password"></mat-icon>
+              <mat-form-field class="">
+                <input matInput placeholder="Contraseña" type="password" [(ngModel)]="User.userPass" formControlName="userPass">
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <button mat-button type="submit" [disabled]="!loginForm.valid">Entrar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+  </div>
+</div>

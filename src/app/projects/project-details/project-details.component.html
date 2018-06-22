@@ -1,0 +1,126 @@
+<app-session></app-session>
+<div class="details-container">
+  <mat-card *ngIf="project !== undefined">
+    <mat-card-content>
+      <h2>Projecto: {{project.descripcion}}</h2>
+      <mat-tab-group>
+        <mat-tab label="Reuniones">
+          <div class="details-container-mettings">
+            <div class="meeting-menu">
+              <button mat-raised-button class="addMeetingButton" (click)="switchPostMeeting()" type="button">
+                Nueva Reunion
+              </button>
+              <div class="meeting-list">
+                <div class="meeting-items" *ngFor="let reu of reuniones"> 
+                  <a class="meeting-item" (click)="selectMeeting(reu)" [class.selected]="wasClicked">{{reu.resumen}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="meeting-detail">
+              <div class="meeting-detail-options">
+                <a (click)="displayAttendants()">Lista de Asistentes</a>
+                <button mat-icon-button>
+                  <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+                </button>
+                <button mat-icon-button>
+                  <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
+                </button>
+                <button mat-icon-button>
+                  <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                </button>
+              </div>
+              <div class="meeting-detail-titulo" *ngIf="selectedMeeting !== undefined">
+                <p>REUNIÓN {{ selectedMeeting.fecha }}</p>
+                <p><b>OBJETIVO:</b> {{ selectedMeeting.resumen }}</p>
+              </div>
+              <div class="meeting-detail-body" [ngSwitch]="saving">
+                <div class="formActa" *ngSwitchCase="true">
+                  <form [formGroup]="addMeetingForm" (ngSubmit)="crearReunion()">
+                    <h1>Agregar Acta</h1>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <mat-form-field>
+                          <input matInput placeholder="Resumen" formControlName="resumen" [(ngModel)]="Reunion.resumen" type="text">
+                        </mat-form-field>
+                        <mat-form-field>
+                          <input matInput placeholder="Fecha" formControlName="fecha" [(ngModel)]="Reunion.fecha" type="date">
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-12">
+                        <mat-form-field>
+                          <mat-select placeholder="Miembros del Equipo" [(ngModel)]="selectedMember" formControlName="selectedMember">
+                            <mat-option *ngFor="let user of listOfUsers" [value]="user">
+                              {{ user.fullName }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-list *ngIf="Reunion.usuarioActa.length > 0">
+                          <h3 mat-subheader>Miembros</h3>
+                          <mat-list-item *ngFor="let member of Reunion.usuarioActa">
+                            <h4 mat-line>{{ member.nombre }}</h4>
+                            <p mat-line> {{ member.username }} </p>
+                            <button mat-raised-button type="button" class="deleteMember" (click)="deleteMember(member)">
+                              <mat-icon svgIcon="delete"></mat-icon>
+                            </button>
+                          </mat-list-item>
+                        </mat-list>
+                        <div class="col-md-12">
+                          <button mat-raised-button type="button" (click)="addMember()">Agregar Miembro</button>
+                          
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <h3 mat-subheader>Tema</h3>
+                      </div>
+                      <div class="col-md-12">
+                        <div formArrayName="temaActa" *ngFor="let item of addMeetingForm.get('temaActa').controls; let i = index;">
+                          <div [formGroupName]="i">
+                            <mat-form-field>
+                              <input matInput placeholder="Nombre" formControlName="nombre" type="text">
+                            </mat-form-field>
+                            <mat-form-field>
+                              <input matInput placeholder="Discusion" formControlName="discusion" type="text">
+                            </mat-form-field>
+                            <button mat-raised-button type="button" (click)="addTheme()">Agregar Tema</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <button mat-raised-button type="submit">Agregar Acta</button>
+                      </div>
+                    </div>
+                    </form>
+                </div>
+                <div *ngSwitchCase="false">
+                  <h5>Memoria sección Investigación</h5>
+                  <p>Se conversa sobre los pasos a seguir en la tesis y que es lo que debemos abordar de forma inicial. El marco teórico sera
+                    lo primero que debemos abordar del cual se define que: no es un conjunto de definiciones, mas bien una elaboración de
+                    un cuento donde estén representados los conceptos es decir crear una narrativa del problema.</p>
+                  <mat-list *ngIf="selectedMeeting !== undefined && selectedMeeting.temaActa.length > 0">
+                    <h3 mat-subheader>Temas</h3>
+                    <mat-list-item *ngFor="let theme of selectedMeeting.temaActa">
+                      <p mat-line>
+                        {{theme.nombre}}{{theme.discusion}}
+                      </p>
+                    </mat-list-item>
+                  </mat-list>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Tablero Kanban" disabled>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis
+            vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur
+            felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum
+            enim, vel tempor sapien arcu a tellus.
+          </div>
+        </mat-tab>
+        <mat-tab label="Trazabilidad" disabled>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio quibusdam accusantium inventore, atque cum nam harum quas aliquid necessitatibus mollitia voluptate praesentium? Voluptatem ut illo voluptas tempore sequi, nobis cumque!
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>
