@@ -4,9 +4,6 @@ const express = require('express');
 
 const app = express();
 
-app.set('views', path.join(__dirname, 'src'));
-app.use(express.static(__dirname + '/dist'));
-
 if (module === require.main) {
   // [START server]
   // Start the server
