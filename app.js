@@ -4,12 +4,8 @@ const express = require('express');
 
 const app = express();
 
-// [START hello_world]
-// Say hello!
-app.get('/', (req, res) => {
-  res.status(200).send('Hello, world!');
-});
-// [END hello_world]
+app.set('views', path.join(__dirname, 'src'));
+app.use(express.static(__dirname + '/dist'));
 
 if (module === require.main) {
   // [START server]
