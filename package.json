@@ -4,8 +4,7 @@
   "license": "MIT",
   "repository": "https://github.com/woliverhl/d-minute-front.git",
   "scripts": {
-    "ng": "ng",
-    "start": "ng app.js",
+    "start": "node app.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
